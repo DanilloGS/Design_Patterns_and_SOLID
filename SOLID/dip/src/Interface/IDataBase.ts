@@ -1,6 +1,6 @@
 interface IDataBase {
   startDB(): void;
-  shutDown(): void
+  getById(id:number):void;
 }
 
 export default IDataBase;

@@ -1,12 +1,12 @@
 import IDataBase from "../Interface/IDataBase";
 
 class Mongo implements IDataBase {
-  shutDown(): void {
-    console.log("Desligando Mongo");    
+  getById(id:number): void {
+    console.log("Mongo -> Pegando produto: "+ id);    
   }
   startDB(): void {
     console.log("Ligando Mongo");    
   }
 }
 
-export default new Mongo();
+export default Mongo;
