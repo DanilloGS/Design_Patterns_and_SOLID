@@ -1,5 +1,5 @@
 interface ITransport {
-    deliver(): void;
+    deliver(): string;
 }
 
 export default ITransport

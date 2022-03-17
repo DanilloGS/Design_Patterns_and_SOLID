@@ -1,23 +1,13 @@
-import DeliverType from "../DeliverType";
-import ILogistic from "../Interface/ILogistic";
 import ITransport from "../Interface/ITransport";
-import Ship from "./Ship";
-import Truck from "./Truck";
 
-class Logistic implements ILogistic{
+abstract class Logistic{
 
-    private static deliverType = DeliverType.TRUCK;
+  protected abstract planDelivery(): ITransport;
 
-    planDelivery(): void {
-        console.log("Planejar nova entrega");
-    }
-
-    createTransport(): ITransport {
-        this.planDelivery();
-        if(Logistic.deliverType === DeliverType.SHIP) return new Ship();
-        else return new Truck();
-    }
-    
+  public createTransport(): void {
+    const transport = this.planDelivery();
+    console.log("Fabrica: ", transport.deliver());
+  }
 
 }
 
