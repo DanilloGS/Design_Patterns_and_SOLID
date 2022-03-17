@@ -1,9 +1,22 @@
-// Implementação em TS seguindo exemplo do https://refactoring.guru/pt-br/design-patterns/factory-method
+// Implementação em TS seguindo exemplo do https://refactoring.guru/pt-br/design-patterns/abstract-factory
 
-import Logistic from "./src/Classes/Logistic";
+import ModernForniture from "./src/Classes/ModernForniture";
+import VitorianForniture from "./src/Classes/VitorianForniture";
+import FornitureType from "./src/FornitureType";
+import IFurniture from "./src/Interface/IFurniture";
 
-const logistic = new Logistic()
+const client = (forniture: IFurniture, type = FornitureType.COFFE_TABLE) => {
+  if (type === FornitureType.CHAIR) {
+    forniture.createChair()
+  } else if (type === FornitureType.SOFA) {
+    forniture.createSofa();
+  } else {
+    forniture.createCoffeTable();
+  }
+}
 
-const trasport = logistic.createTransport();
-trasport.deliver();
+const vitorian = new VitorianForniture();
+const modern = new ModernForniture();
 
+client(vitorian);
+client(modern);
