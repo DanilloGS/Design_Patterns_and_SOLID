@@ -1,7 +1,9 @@
+import IChair from "./IChair";
+import ISofa from "./ISofa";
+
 interface IFurniture {
-	createChair(): void,
-	createSofa(): void,
-	createCoffeTable(): void,
+  createChair(): IChair;
+  createSofa(): ISofa;
 }
 
 export default IFurniture;
